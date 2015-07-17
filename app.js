@@ -6,6 +6,11 @@ var server_port = process.env.PORT || 3000;
 
 var router = express.Router();
 
+router.use(function(req, res, next) {
+    console.log(req.method, req.url);
+    next(); 
+});
+
 router.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'));  
 });
