@@ -4,6 +4,9 @@ var path = require('path');
 var server_port = process.env.PORT || 3000;
 
 
+app.set('view engine', 'ejs');
+
+
 var router = express.Router();
 
 router.use(function(req, res, next) {
@@ -12,10 +15,10 @@ router.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname + '/index.html'));  
+	res.render('pages/index');
 });
 router.get('/inscription', function(req, res) {
-    res.sendFile(path.join(__dirname + '/inscription.html'));
+    res.render('pages/inscription');
 });
 
 
